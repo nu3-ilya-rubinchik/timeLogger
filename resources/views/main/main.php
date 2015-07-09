@@ -214,7 +214,7 @@
     </div>
     <div class="footer-copyright">
         <div class="container">
-            Made by <a class="orange-text text-lighten-3" href="#">Ilya Rubinchik</a>
+            Made by <a class="orange-text text-lighten-3" href="#">Team Awesome</a>
         </div>
     </div>
 </footer>
