@@ -3,14 +3,14 @@ function rand(min, max)
     return Math.floor(Math.random()*(max-min+1)+min);
 }
 
-delayTime300 = 30;
-delayTime400 = 40;
-delayTime500 = 50;
-delayTime600 = 60;
-delayTime800 = 80;
-delayTime1000 = 100;
-delayTime1200 = 120;
-delayTime2000 = 200;
+delayTime300 = 300;
+delayTime400 = 400;
+delayTime500 = 500;
+delayTime600 = 600;
+delayTime800 = 800;
+delayTime1000 = 1000;
+delayTime1200 = 1200;
+delayTime2000 = 2000;
 
 content = '';
 content2 = '';
