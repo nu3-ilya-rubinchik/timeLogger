@@ -1,0 +1,38 @@
+
+
+
+#form {
+    padding: 20px;
+    margin-top: 40px;
+}
+
+#text-area {
+
+}
+
+.text-area {
+    margin-bottom:0;
+}
+.text-area + .text-area {
+    margin-top: 5px;
+}
+.hidden {
+    display: none;
+}
+input.small-input {
+    width: 80px;
+    display:inline;
+}
+input.medium-input {
+    width: 300px;
+    display:inline;
+}
+
+.step-3-controls, .step-5-controls {
+    margin-top: 10px;
+}
+
+#day-start-time {
+    width: 100px;
+    float:left;
+}
