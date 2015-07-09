@@ -4,12 +4,13 @@ function rand(min, max)
 }
 
 delayTime300 = 300;
-delayTime400 = 400;
+delayTime400 = 300;
 delayTime500 = 500;
 delayTime600 = 600;
 delayTime800 = 800;
 delayTime1000 = 1000;
 delayTime1200 = 1200;
+delayTime1800 = 1800;
 delayTime2000 = 2000;
 
 content = '';
@@ -64,11 +65,11 @@ function startLogging() {
         var queue = [
             {text:'        Welcome to NU3 IT time logger', el:$('#text-area11'), options:{'duration':delayTime800}},
             {text:'All rights reserved and bla-bla', el:$('#text-area12'), options:{'duration':delayTime800}},
-            {text:'This peace of product would be never possible without help from next people:', el:$('#text-area13'), options:{'duration':delayTime400}},
+            {text:'This piece of product would be never possible without help from the following people:', el:$('#text-area13'), options:{'duration':delayTime400}},
             {text:'1. The guy who came up with idea of tracking time in IT department', el:$('#text-area14'), options:{'duration':delayTime400}},
-            {text:'2. Humble developers who worked to make this peace of software happen.', el:$('#text-area15'), options:{'duration':delayTime400}},
+            {text:'2. Humble developers who worked to make this piece of software happen.', el:$('#text-area15'), options:{'duration':delayTime400}},
             {text:'But let\'s cut to the chase and log some time!', el:$('#text-area16'), options:{'duration':delayTime2000}},
-            {text:'By default current date is used (' + date + ')', el:$('#text-area17'), options:{'duration':delayTime600}},
+            {text:'By default the current date is used (' + date + ')', el:$('#text-area17'), options:{'duration':delayTime600}},
             {text:'Please enter the time when you started your day here', el:$('#text-area18'), options:{'duration':delayTime600}}
         ];
         pasteText('Hello my little fella!', $('#text-area11'), {'duration':delayTime1000, 'queue':queue});

@@ -4,7 +4,7 @@
 <nav class="light-green lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Nu3</a>
         <ul class="right hide-on-med-and-down">
-            <li><a class="waves-effect" href="#">Just some button</a></li>
+            <li><a class="waves-effect" href="#">Do not press this button</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
@@ -129,8 +129,8 @@
             <p class="flow-text text-area" id="text-area84"></p>
             <p class="flow-text text-area" id="text-area85"></p>
             <div class="step-8-controls hidden">
-                <a class="waves-effect green waves-light btn" onclick="sendReport()">Stop talking and send already this got damn report!</a>
-                <a class="waves-effect red waves-light btn" onclick="sendReport()">You know what! I changed my mind! Don't sent it!</a>
+                <a class="waves-effect green waves-light btn" onclick="sendReport()">Stop talking and send this got damn report already!</a>
+                <a class="waves-effect red waves-light btn" onclick="sendReport()">You know what? I changed my mind! Don't sent it!</a>
             </div>
         </div>
 <!--        <div class="row">-->
@@ -170,16 +170,16 @@
                     <h2 class="center light-green-text"><i class="material-icons">Cutting edge</i></h2>
                     <h5 class="center">technologies was never used</h5>
 
-                    <p class="light">A stone. A rock. A bird. That are the simple things our developments team was inspired by when this peace of software was developed. Hmm maybe the bird was not on that list.</p>
+                    <p class="light">A stone. A rock. A bird. That are the simple things our developments team was inspired by when this piece of software was developed. Hmm maybe the bird was not on that list.</p>
                 </div>
             </div>
 
             <div class="col s12 m4">
                 <div class="icon-block">
                     <h2 class="center light-green-text"><i class="material-icons">Ruby, Go, Scala</i></h2>
-                    <h5 class="center">languages are not known by our developers</h5>
+                    <h5 class="center">languages that are not known by our developers</h5>
 
-                    <p class="light">Here at nu3 timeTracker team we was thinking about Zend Framework all the time that we put into this project. And as a special feature for uor customers we started this project first with creating a huge base of legacy code. We just can't work without it!</p>
+                    <p class="light">Here at nu3, the timeTracker team were thinking about the Zend Framework for the whole time that we were working on this project. And as a special feature for our customers we started this project with the creation of a huge base of legacy code. We just can't work without it!</p>
                 </div>
             </div>
 
@@ -188,7 +188,7 @@
                     <h2 class="center light-green-text"><i class="material-icons">User friendly</i></h2>
                     <h5 class="center">interface is not something we care about</h5>
 
-                    <p class="light">Here at nu3 timeTracker team we always think about our customers and after a huge research we can totally see that time tracking is not working for you if you reading this stupid filler text.</p>
+                    <p class="light">Here at nu3 timeTracker team we always think about our customers and after a huge amount of research we can totally see that time tracking is not working for you if you are reading this stupid filler text.</p>
                 </div>
             </div>
         </div>
@@ -206,7 +206,7 @@
         <div class="row">
             <div class="col l12 s12">
                 <h5 class="white-text">by Team Awesome</h5>
-                <p class="grey-text text-lighten-4">From the creators of Fidtz, NT-tool and many other stupid things!</p>
+                <p class="grey-text text-lighten-4">From the creators of Fidtz, NT-tool and many other buggy products!</p>
 
 
             </div>
