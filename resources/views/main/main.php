@@ -4,7 +4,7 @@
 <nav class="light-green lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Nu3</a>
         <ul class="right hide-on-med-and-down">
-            <li><a class="waves-effect" href="#">Do not press this button</a></li>
+            <li><a class="waves-effect" id="donotpress" href="#">Do not press this button</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
