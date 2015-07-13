@@ -18,3 +18,9 @@
 $app->get('/', [
     'as' => 'main', 'uses' => 'Controller@main'
 ]);
+$app->post('/send', [
+    'as' => 'send', 'uses' => 'Controller@send'
+]);
+//$app->get('send', function () use ($app) {
+//    return $app->welcome();
+//});

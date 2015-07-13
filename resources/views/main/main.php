@@ -4,7 +4,9 @@
 <nav class="light-green lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Nu3</a>
         <ul class="right hide-on-med-and-down">
-            <li><a class="waves-effect" href="#">Do not press this button</a></li>
+            <li class="ignore-button">
+                <a class="waves-effect" href="#">Do not press this button</a>
+            </li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
@@ -130,36 +132,9 @@
             <p class="flow-text text-area" id="text-area85"></p>
             <div class="step-8-controls hidden">
                 <a class="waves-effect green waves-light btn" onclick="sendReport()">Stop talking and send this got damn report already!</a>
-                <a class="waves-effect red waves-light btn" onclick="sendReport()">You know what? I changed my mind! Don't sent it!</a>
+                <a class="waves-effect red waves-light btn">You know what? I changed my mind! Don't sent it!</a>
             </div>
         </div>
-<!--        <div class="row">-->
-<!--            <form class="col s12">-->
-<!--                <div class="row">-->
-<!--                    <div class="input-field col s6">-->
-<!--                        <input placeholder="Placeholder" id="first_name" type="text" class="validate">-->
-<!--                        <label for="first_name">First Name</label>-->
-<!--                    </div>-->
-<!--                    <div class="input-field col s6">-->
-<!--                        <input id="last_name" type="text" class="validate">-->
-<!--                        <label for="last_name">Last Name</label>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="row">-->
-<!--                    <div class="input-field col s12">-->
-<!--                        <input id="password" type="password" class="validate">-->
-<!--                        <label for="password">Password</label>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="row">-->
-<!--                    <div class="input-field col s12">-->
-<!--                        <input id="email" type="email" class="validate">-->
-<!--                        <label for="email">Email</label>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </form>-->
-<!--        </div>-->
     </div>
     <div class="section" >
 
@@ -167,7 +142,7 @@
         <div class="row">
             <div class="col s12 m4">
                 <div class="icon-block">
-                    <h2 class="center light-green-text"><i class="material-icons">Cutting edge</i></h2>
+                    <h2 class="center light-green-text"><i class="">Cutting edge</i></h2>
                     <h5 class="center">technologies was never used</h5>
 
                     <p class="light">A stone. A rock. A bird. That are the simple things our developments team was inspired by when this piece of software was developed. Hmm maybe the bird was not on that list.</p>
@@ -176,7 +151,7 @@
 
             <div class="col s12 m4">
                 <div class="icon-block">
-                    <h2 class="center light-green-text"><i class="material-icons">Ruby, Go, Scala</i></h2>
+                    <h2 class="center light-green-text"><i class="">Ruby, Go, Scala</i></h2>
                     <h5 class="center">languages that are not known by our developers</h5>
 
                     <p class="light">Here at nu3, the timeTracker team were thinking about the Zend Framework for the whole time that we were working on this project. And as a special feature for our customers we started this project with the creation of a huge base of legacy code. We just can't work without it!</p>
@@ -185,7 +160,7 @@
 
             <div class="col s12 m4">
                 <div class="icon-block">
-                    <h2 class="center light-green-text"><i class="material-icons">User friendly</i></h2>
+                    <h2 class="center light-green-text"><i class="">User friendly</i></h2>
                     <h5 class="center">interface is not something we care about</h5>
 
                     <p class="light">Here at nu3 timeTracker team we always think about our customers and after a huge amount of research we can totally see that time tracking is not working for you if you are reading this stupid filler text.</p>
@@ -215,6 +190,7 @@
     <div class="footer-copyright">
         <div class="container">
             Made by <a class="orange-text text-lighten-3" href="#">Team Awesome</a>
+            <i onclick="thankYouTeamAwesome()" class="small material-icons like-us">thumb_up</i>
         </div>
     </div>
 </footer>

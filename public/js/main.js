@@ -41,6 +41,7 @@ $(document).ready(function() {
     $(document).bind('keyup', 't', function () { var el = addTicket(); if (el) el.find('input').val('');});
     $(document).bind('keyup', 'm', function () { var el = addMeeting(); if (el) el.find('input').val('');});
     $(document).bind('keyup', 'r', function () { var el = addResearch(); if (el) el.find('input').val('');});
+    $(document).bind('keyup', 'alt+a', function () { thankYouTeamAwesome() });
     $(document).bind('keydown', 'return', function () { enterPressed(); });
     $('input').on('keypress', function(e) {
         //console.info(e.keyCode);
@@ -50,6 +51,7 @@ $(document).ready(function() {
                 break;
         }
     });
+    $('.ignore-button a').on('click', function() {ignoreButton()});
 });
 
 loggerStep = 0;
@@ -152,7 +154,9 @@ function finishDay() {
             {text: 'Now let`s talk about email. Do you want us to send it to timetracker@nu3.com?', el: $('#text-area62'), options: {'duration': delayTime1200}}
         ];
         pasteText('We will use current time as the end time of your day (+5 minutes)', $('#text-area61'), {'duration': delayTime800, 'queue': queue});
-        $('.step-6-controls').delay(delayTime1200 + delayTime800).slideDown(delayTime300);
+        $('.step-6-controls').delay(delayTime1200 + delayTime800).slideDown(delayTime300, function() {
+            $('#email-target').focus();
+        });
     });
 }
 
@@ -180,7 +184,7 @@ function fromEmailSet() {
     //$secondPart = convertTasks($secondPart);
     content = date + " " + startDayTime + ":00;" + date + " " + lunchStartTime + ":00;" + firstPartOfDay.join(',');
     console.info(content);
-    content2 = date + " " + lunchEndTime + ":00;" + date + " " + twoDigits(dateObject.getUTCHours()) + ":" + twoDigits(dateObject.getUTCMinutes() + 5) + ":00;" + secondPartOfDay.join(',')
+    content2 = date + " " + lunchEndTime + ":00;" + date + " " + twoDigits(dateObject.getHours()) + ":" + twoDigits(dateObject.getUTCMinutes() + 5) + ":00;" + secondPartOfDay.join(',')
     console.info(content2);
 
     $('#logger-step-7').slideUp(delayTime500, function() {
@@ -193,6 +197,31 @@ function fromEmailSet() {
         pasteText('Here we are! The report is ready! And it looks like:', $('#text-area81'), {'duration': delayTime1200, 'queue': queue});
         $('.step-8-controls').delay(delayTime2000).slideDown(delayTime300);
     });
+}
+
+function sendReport() {
+    $.ajax({
+        type: "POST",
+        url: "/send",
+        data: {
+            'content' : content,
+            'content2' : content2,
+            'emailTo' : $('#email-target').val(),
+            'emailFrom' : $('#email-from').val()
+        },
+    });
+}
+
+function thankYouTeamAwesome() {
+    delayTime300 = 30;
+    delayTime400 = 30;
+    delayTime500 = 50;
+    delayTime600 = 60;
+    delayTime800 = 80;
+    delayTime1000 = 100;
+    delayTime1200 = 120;
+    delayTime1800 = 180;
+    delayTime2000 = 200;
 }
 
 function getTasks(stepNum) {
@@ -250,6 +279,9 @@ function enterPressed() {
             break;
         case 7:
             fromEmailSet();
+            break;
+        case 8:
+            sendReport();
             break;
     }
 }
@@ -335,6 +367,16 @@ function addTask(type, button) {
 
     });
     return el;
+}
+
+ignoreButtonCounter=0;
+function ignoreButton() {
+    ignoreButtonCounter++;
+    var array = ['', '', '', '', '', 'Why are you doing that?', 'I asked you NOT to press this button!', '', 'Someone here have no manners!', '', '', '', 'damn!', 'Really?', 'You have nothing else to do?'];
+    if (array[ignoreButtonCounter]) {
+        $('.ignore-button a').html('');
+        pasteText(array[ignoreButtonCounter], $('.ignore-button a'));
+    }
 }
 
 function pasteText(text, el, options) {

@@ -36,3 +36,9 @@ input.medium-input {
     width: 100px;
     float:left;
 }
+
+.like-us {
+    position:absolute;
+    line-height:46px;
+    margin-left: 20px;
+}
