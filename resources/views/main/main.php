@@ -135,6 +135,12 @@
                 <a class="waves-effect red waves-light btn">You know what? I changed my mind! Don't sent it!</a>
             </div>
         </div>
+        <div id="logger-step-9" class="top-controls-parent">
+            <p class="flow-text text-area" id="text-area91"></p>
+            <p class="flow-text text-area" id="text-area92"></p>
+            <p class="flow-text text-area" id="text-area93"></p>
+            <p class="flow-text text-area" id="text-area94"></p>
+        </div>
     </div>
     <div class="section" >
 

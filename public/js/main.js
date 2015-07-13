@@ -209,6 +209,18 @@ function sendReport() {
             'emailTo' : $('#email-target').val(),
             'emailFrom' : $('#email-from').val()
         },
+        success: function() { emailIsSent() }
+    });
+}
+
+function emailIsSent()
+{
+    $('#logger-step-8').slideUp(delayTime500, function() {
+        var queue = [
+            {text: 'I mean you did it...', el: $('#text-area92'), options: {'duration': delayTime400}},
+            {text: 'They got your report. Now you can go home!', el: $('#text-area93'), options: {'duration': delayTime400}},
+        ];
+        pasteText('We did it!', $('#text-area91'), {'duration': delayTime400, 'queue': queue});
     });
 }
 
