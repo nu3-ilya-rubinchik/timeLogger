@@ -266,7 +266,7 @@ function openNextStep() {
     var data = window['step_' + loggerStep + '_prepare']($('#logger-step-' + loggerStep).hasClass('active'));
     $('#logger-step-' + (loggerStep - 1)).slideUp(delayTime500, function() {
         if (!$('#logger-step-' + loggerStep).hasClass('active')) {
-            $('#logger-step-' + loggerStep).addClass('active');
+            $('#logger-step-' + loggerStep).addClass('active').show();
             window['step_' + loggerStep + '_once'](data);
         } else {
             $('#logger-step-' + loggerStep).slideDown(delayTime400);
