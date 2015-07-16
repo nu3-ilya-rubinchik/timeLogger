@@ -9,11 +9,10 @@ class Controller extends BaseController
 {
     //
 
-    public function main()
+    public function main(Request $request)
     {
-
-
-        return view('layout', ['date' => '07.07.2015']);
+        $email = $request->session()->get('user-email');
+        return view('layout', ['email' => $email]);
     }
 
 
@@ -23,6 +22,8 @@ class Controller extends BaseController
         $content2  = $request->input('content2');
         $emailTo   = $request->input('emailTo');
         $emailFrom = $request->input('emailFrom');
+
+        $request->session()->set('user-email', $emailFrom);
 
         $content .= "\n" . $content2;
 

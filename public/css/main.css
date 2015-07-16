@@ -4,10 +4,21 @@
 #form {
     padding: 20px;
     margin-top: 40px;
+    min-height:345px;
 }
 
 #text-area {
 
+}
+
+#logo-container:hover{
+    background-image: url('../awesome.jpg');
+    background-size: 100px;
+    width:100px;
+    height:64px;
+}
+#logo-container:hover span{
+    display:none;
 }
 
 .text-area {
@@ -41,4 +52,32 @@ input.medium-input {
     position:absolute;
     line-height:46px;
     margin-left: 20px;
+}
+
+#controls-container {
+    float:right;
+    width:20%;
+    margin-top: -20px;
+    margin-right: -20px;
+}
+#controls-container .collection{
+    margin:0;
+}
+#step-container {
+    width:80%;
+}
+
+.collection .collection-item.active {
+    background-color: #d7512b;
+    color: #eafaf9;
+}
+
+.awesome-red {
+    background-color: #d7512b !important;
+}
+.awesome-red-text {
+    color: #d7512b;
+}
+.collection-item {
+    cursor: pointer;
 }
