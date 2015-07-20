@@ -207,8 +207,14 @@ function step_8_prepare(isRepeatedExecution) {
     var firstPartOfDay = getTasks(3);
     var secondPartOfDay = getTasks(5);
     var startDayObject = new Date();
+    var startLunchObject = new Date();
+    var endLunchObject = new Date();
     var startDayTimeArray = startDayTime.split(':');
+    var startLunchTimeArray = lunchStartTime.split(':');
+    var endLunchTimeArray = lunchEndTime.split(':');
     startDayObject.setHours(startDayTimeArray[0], startDayTimeArray[1]);
+    startLunchObject.setHours(startLunchTimeArray[0], startLunchTimeArray[1]);
+    endLunchObject.setHours(endLunchTimeArray[0], endLunchTimeArray[1]);
 
     var dateObject = new Date();
     var date = dateObject.toMysqlFormatDate();
@@ -217,7 +223,8 @@ function step_8_prepare(isRepeatedExecution) {
     content = date + " " + startDayTime + ":00;" + date + " " + lunchStartTime + ":00;" + firstPartOfDay.join(',');
     console.info(content);
     content2 = date + " " + lunchEndTime + ":00;" + date + " " + twoDigits(dateObject.getHours()) + ":" + twoDigits(dateObject.getUTCMinutes() + 5) + ":00;" + secondPartOfDay.join(',');
-    var overHours = (Math.round(((Math.abs(dateObject - startDayObject) / 36e5) - 8) * 100) / 100) ;
+    var dTime =(startLunchObject - startDayObject) + (dateObject - endLunchObject);
+    var overHours = (Math.round(((Math.abs(dTime) / 36e5) - 8) * 100) / 100) ;
     console.info(content2);
     console.info(overHours);
     if (overHours < 0) {
