@@ -71,12 +71,12 @@ function startLogging() {
         var date = new Date().toMysqlFormatDate();;
 
         var queue = [
-            {text:'        Welcome to NU3 IT time logger', el:$('#text-area11'), options:{'duration':delayTime800}},
+            {text:'        Welcome to NU3 IT time waster tool ^^^^^^^^^^^^logger', el:$('#text-area11'), options:{'duration':delayTime800}},
             {text:'All rights reserved and bla-bla', el:$('#text-area12'), options:{'duration':delayTime800}},
             {text:'This piece of product would be never possible without help from the following people:', el:$('#text-area13'), options:{'duration':delayTime400}},
-            {text:'1. The guy who came up with idea of tracking time in IT department', el:$('#text-area14'), options:{'duration':delayTime400}},
+            {text:'1. Michael, our much beloved    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^Whoever came up with idea of tracking time in the IT department', el:$('#text-area14'), options:{'duration':delayTime400}},
             {text:'2. Humble developers who worked to make this piece of software happen.', el:$('#text-area15'), options:{'duration':delayTime400}},
-            {text:'But let\'s cut to the chase and log some time!', el:$('#text-area16'), options:{'duration':delayTime2000}},
+            {text:'But let\'s cut to the chase and waste    ^^^^^^^^^log some time!', el:$('#text-area16'), options:{'duration':delayTime2000}},
             {text:'By default the current date is used (' + date + ')', el:$('#text-area17'), options:{'duration':delayTime600}},
             {text:'Please enter the time when you started your day here', el:$('#text-area18'), options:{'duration':delayTime600}}
         ];
@@ -459,7 +459,12 @@ function pasteText(text, el, options) {
     }
     var letter = text.substr(0, 1);
     var rest = text.substr(1);
-    el.append(letter);
+    if (letter === '^') {
+        var html = el.html();
+        el.html(html.substr(0, html.length - 1));
+    } else {
+        el.append(letter);
+    }
     if (text.length > 1) {
         setTimeout(function(){pasteText(rest, el, options);}, time);
     } else {
