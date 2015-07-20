@@ -206,6 +206,9 @@ function step_8_prepare(isRepeatedExecution) {
     var lunchEndTime = $('#end-lunch-time').val();
     var firstPartOfDay = getTasks(3);
     var secondPartOfDay = getTasks(5);
+    var startDayObject = new Date();
+    var startDayTimeArray = startDayTime.split(':');
+    startDayObject.setHours(startDayTimeArray[0], startDayTimeArray[1]);
 
     var dateObject = new Date();
     var date = dateObject.toMysqlFormatDate();
@@ -214,19 +217,40 @@ function step_8_prepare(isRepeatedExecution) {
     content = date + " " + startDayTime + ":00;" + date + " " + lunchStartTime + ":00;" + firstPartOfDay.join(',');
     console.info(content);
     content2 = date + " " + lunchEndTime + ":00;" + date + " " + twoDigits(dateObject.getHours()) + ":" + twoDigits(dateObject.getUTCMinutes() + 5) + ":00;" + secondPartOfDay.join(',');
+    var overHours = (Math.round(((Math.abs(dateObject - startDayObject) / 36e5) - 8) * 100) / 100) ;
     console.info(content2);
-    if (isRepeatedExecution) {
-        $('#text-area83').html(content);
-        $('#text-area84').html(content2);
+    console.info(overHours);
+    if (overHours < 0) {
+        var overHoursText = ' Are you trying to leave early? You still have to work for ' + Math.abs(overHours) + ' hours!';
+    } else {
+        if (overHours > 1) {
+            var overHoursText = 'Monica! I know it is you!!!!^^^^^^^^^^^^^^^^^^^^^^^^^^^^Some one is doing overtime for ' + overHours + ' hours today!';
+        } else if (overHours > 0.5) {
+            var overHoursText = 'You did fine and worked for ' + overHours + ' hours more than you should! Go home now!';
+        } else {
+            var overHoursText = 'Barely finished the day!^^^^^^^^^^^^^^^^^^^^^^^^You did fine! Go home now!';
+        }
     }
+    if (isRepeatedExecution) {
+        $('#text-area83').html('');
+        $('#text-area84').html('');
+        $('#text-area86').html('');
+        var queue = [
+            {text: content2, el: $('#text-area84'), options: {'duration': delayTime400}},
+            {text: overHoursText, el: $('#text-area86'), options: {'duration': delayTime1200}},
+        ];
+        pasteText(content, $('#text-area83'), {'duration': delayTime600, 'queue': queue});
+    }
+    return {'overHours' : overHoursText};
 }
-function step_8_once() {
+function step_8_once(data) {
     $('#logger-step-7').slideUp(delayTime500, function() {
         var queue = [
             {text: '=======================================================', el: $('#text-area82'), options: {'duration': delayTime400}},
             {text: content, el: $('#text-area83'), options: {'duration': delayTime600}},
             {text: content2, el: $('#text-area84'), options: {'duration': delayTime600}},
             {text: '=======================================================', el: $('#text-area85'), options: {'duration': delayTime400}},
+            {text: data.overHours, el: $('#text-area86'), options: {'duration': delayTime1200}},
         ];
         pasteText('Here we are! The report is ready! And it looks like:', $('#text-area81'), {'duration': delayTime1200, 'queue': queue});
         $('.step-8-controls').delay(delayTime2000).slideDown(delayTime300);
@@ -298,7 +322,7 @@ function goToStep(step) {
         });
         loggerStep = step;
         window['step_' + loggerStep + '_prepare']($('#logger-step-' + loggerStep).hasClass('activated'));
-        setActiveStepButton(loggerStep)
+        setActiveStepButton(loggerStep);
     });
 }
 

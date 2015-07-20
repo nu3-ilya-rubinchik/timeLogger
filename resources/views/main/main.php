@@ -148,6 +148,7 @@
                 <p class="flow-text text-area" id="text-area83"></p>
                 <p class="flow-text text-area" id="text-area84"></p>
                 <p class="flow-text text-area" id="text-area85"></p>
+                <p class="flow-text text-area" id="text-area86"></p>
                 <div class="step-8-controls hidden">
                     <a class="waves-effect green waves-light btn" onclick="sendReport()">Stop talking and send this god damn report already!</a>
                     <a class="waves-effect red waves-light btn">You know what? I changed my mind! Don't send it!</a>
