@@ -168,7 +168,7 @@
             <div class="col s12 m4">
                 <div class="icon-block">
                     <h2 class="center awesome-red-text"><i class="">Cutting edge</i></h2>
-                    <h5 class="center">technologies were never used</h5>
+                    <h5 class="center">technologies were never used in the creation of this fantastic tool</h5>
 
                     <p class="light">A stone. A rock. A bird. These are the simple things our development team was inspired by when this piece of software was developed. Hmm, perhaps the bird was not on that list.</p>
                 </div>
