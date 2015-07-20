@@ -16,6 +16,8 @@ delayTime2000 = 2000;
 content = '';
 content2 = '';
 
+animationInProgress = 0;
+
 function microtime(get_as_float) {
     //  discuss at: http://phpjs.org/functions/microtime/
     // original by: Paulo Freitas
@@ -105,7 +107,6 @@ function step_2_once() {
 }
 
 function step_3_prepare(isRepeatedExecution) {
-    console.info(isRepeatedExecution);
     var startDayTime   = $('#day-start-time').val();
     var lunchStartTime = $('#start-lunch-time').val();
     var startDayTimeArray = startDayTime.split(':');
@@ -116,7 +117,6 @@ function step_3_prepare(isRepeatedExecution) {
     date2.setHours(lunchStartTimeArray[0], lunchStartTimeArray[1]);
     var hours = (Math.round(Math.abs(date1 - date2) / 36e5 * 100) / 100) + '';
     if (isRepeatedExecution) {
-        console.info(hours);
         $('#text-area322').html(hours);
     }
     return {'hours' : hours};
@@ -262,11 +262,15 @@ function openNextStep() {
     console.info('Next step triggered №' + loggerStep);
     loggerStep++;
     loggerMaxStep++;
+    animationInProgress = 1;
     setActiveStepButton(loggerStep);
-    var data = window['step_' + loggerStep + '_prepare']($('#logger-step-' + loggerStep).hasClass('active'));
-    $('#logger-step-' + (loggerStep - 1)).slideUp(delayTime500, function() {
-        if (!$('#logger-step-' + loggerStep).hasClass('active')) {
-            $('#logger-step-' + loggerStep).addClass('active').show();
+    var data = window['step_' + loggerStep + '_prepare']($('#logger-step-' + loggerStep).hasClass('activated'));
+
+    $('#logger-step-' + (loggerStep - 1)).removeClass('active').slideUp(delayTime500, function() {
+        animationInProgress = 0;
+        $('#logger-step-' + loggerStep).addClass('active');
+        if (!$('#logger-step-' + loggerStep).hasClass('activated')) {
+            $('#logger-step-' + loggerStep).addClass('activated').show();
             window['step_' + loggerStep + '_once'](data);
         } else {
             $('#logger-step-' + loggerStep).slideDown(delayTime400);
@@ -279,14 +283,21 @@ function setActiveStepButton(step) {
     $('#controls-container .collection-item.step-' + step).addClass('active');
 }
 function goToStep(step) {
+    console.info(window.animationInProgress);
+    if (window.animationInProgress == 1) {
+        return false;
+    }
     if (step > loggerMaxStep) {
         Materialize.toast('Sorry you can\'t travel to future!', 4000);
         return true;
     }
-    $('.step-container').slideUp(delayTime500, function() {
-        $('#logger-step-' + step).slideDown(delayTime400);
+    window.animationInProgress = 1;
+    $('.step-container.active').removeClass('active').slideUp(delayTime500, function() {
+        $('#logger-step-' + step).addClass('active').slideDown(delayTime400, function() {
+            window.animationInProgress = 0;
+        });
         loggerStep = step;
-        window['step_' + loggerStep + '_prepare']($('#logger-step-' + loggerStep).hasClass('active'));
+        window['step_' + loggerStep + '_prepare']($('#logger-step-' + loggerStep).hasClass('activated'));
         setActiveStepButton(loggerStep)
     });
 }
@@ -334,6 +345,9 @@ Date.prototype.toMysqlFormatDate = function() {
 };
 
 function enterPressed() {
+    if (animationInProgress == 1) {
+        return false;
+    }
     switch (loggerStep) {
         case 0:
             startLogging();

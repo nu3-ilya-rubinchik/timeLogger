@@ -1,5 +1,5 @@
 
-<nav class="awesome-red lighten-1" role="navigation">
+<nav class="awesome-red lighten-1 no-select" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><span>Nu3</span></a>
         <ul class="right hide-on-med-and-down">
             <li class="ignore-button">
@@ -44,7 +44,7 @@
             </div>
         </div>
         <div id="step-container">
-            <div id="logger-step-1" class="step-container">
+            <div id="logger-step-1" class="step-container active">
                 <p class="flow-text text-area" id="text-area11"></p>
                 <p class="flow-text text-area" id="text-area12"></p>
                 <p class="flow-text text-area" id="text-area13"></p>
